@@ -37,7 +37,7 @@ const players = [
     //Alas
     { name: "Giannis Antetokounmpo", positions: ["Ala", "Ala-Pivô", "Pivô"], image: "img/Giannis Antetokounmpo.png" },
     { name: "Carmelo Anthony", positions: ["Ala", "Ala-Pivô"], image: "img/Carmelo Anthony.jpg" },
-    { name: "Paul Arizin", positions: ["Ala"], image: "img/Paul Arizin.jpg" },
+    { name: "Paul Arizin", positions: ["Ala"], image: "img/Paul Arizin.JPG" },
     { name: "Rick Barry", positions: ["Ala"], image: "img/Rick Barry.jpeg" },
     { name: "Elgin Baylor", positions: ["Ala"], image: "img/Elgin Baylor.jpg" },
     { name: "Larry Bird", positions: ["Ala", "Ala-Pivô"], image: "img/Larry Bird.jpg" },
