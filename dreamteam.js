@@ -82,93 +82,27 @@ const players = [
     { name: "Bill Russell", positions: ["Pivô"], image: "img/Bill Russell.jpg" },
     { name: "Bill Walton", positions: ["Pivô"], image: "img/Bill Walton.jpg" },
   ];
-  
-  const positions = ["Armador", "Ala-Armador", "Ala", "Ala-Pivô", "Pivô"];
-  
-  // Função para sortear um time e exibir animações
-  async function generateTeam() {
-    const selectedPlayers = new Set();
-    const team = {};
-  
-    for (const position of positions) {
-      const availablePlayers = players.filter(player =>
-        player.positions.includes(position) && !selectedPlayers.has(player.name)
-      );
-  
-      if (availablePlayers.length === 0) {
-        alert(`Não há jogadores disponíveis para a posição: ${position}`);
-        return;
-      }
-  
-      const randomIndex = Math.floor(Math.random() * availablePlayers.length);
-      const chosenPlayer = availablePlayers[randomIndex];
-      selectedPlayers.add(chosenPlayer.name);
-      team[position] = chosenPlayer.name;
-    }
-  
-    await revealTeamWithAnimation(team);
-  }
-  
-  // Função para exibir a equipe com animações sequenciais
-  async function revealTeamWithAnimation(team) {
-    const teamDiv = document.getElementById("team");
-    const positionElements = positions.map(position => {
 
-      const normalizedId = position.toLowerCase()
-      .normalize("NFD")
-      .replace(/[\u0300-\u036f]/g, "")  // remove acentos
-      .replace(/\s+/g, "-");             // substitui espaços por hífens
-      return {
-        element: document.getElementById(normalizedId),
-        player: team[position]
-      };
-    });
-  
-    // Limpar posições e resetar cards
-    positionElements.forEach(({ element }) => {
-      if (element) {
-        element.innerHTML = "";
-        element.classList.remove("flipped");
-      }
-    });
-  
-    for (const { element, player } of positionElements) {
-      if (element) {
-        element.classList.add("flipped");
-        await delay(2000); // Aguarda 1 segundo para mostrar cada jogador
-  
-        const playerObj = players.find(p => p.name === player);
-        if (playerObj) {
-          element.innerHTML = `
-            <img src="${playerObj.image}" alt="${playerObj.name}">
-            <div class="player-name">${playerObj.name}</div>
-          `;
-        } else {
-          element.textContent = player;
-        }
-      }
+  function generateTeam() {
+    const positions = {
+        "Armador": "armador",
+        "Ala-Armador": "ala-armador",
+        "Ala": "ala",
+        "Ala-Pivô": "ala-pivo",
+        "Pivô": "pivo"
+    };
+
+    const selectedPlayers = {};
+
+    for (const position in positions) {
+        const availablePlayers = players.filter(player => player.positions.includes(position));
+        const randomPlayer = availablePlayers[Math.floor(Math.random() * availablePlayers.length)];
+        selectedPlayers[position] = randomPlayer;
     }
-  
-    showGenerateAgainButton();
-  }
-  
-  function delay(ms) {
-    return new Promise(resolve => setTimeout(resolve, ms));
-  }
-  
-  function showGenerateAgainButton() {
-    const button = document.querySelector("button.show");
-    if (button) {
-      button.style.visibility = "visible";
+
+    for (const position in selectedPlayers) {
+        const player = selectedPlayers[position];
+        const elementId = positions[position];
+        document.getElementById(elementId).innerHTML = `<img src="${player.image}" alt="${player.name}"><br>${player.name}`;
     }
-  }
-  
-  // Inicializar o evento no botão
-  const generateButton = document.querySelector("button:not(.show)");
-  generateButton.addEventListener("click", () => {
-    const againButton = document.querySelector("button.show");
-    if (againButton) {
-      againButton.style.visibility = "hidden";
-    }
-    generateTeam();
-  });
+}
