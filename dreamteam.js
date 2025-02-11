@@ -79,7 +79,7 @@ const players = [
     { name: "Shaquille O'Neal", positions: ["Pivô"], image: "img/Shaquille O'Neal.png" },
     { name: "Robert Parish", positions: ["Pivô"], image: "img/Robert Parish.jpg" },
     { name: "David Robinson", positions: ["Pivô"], image: "img/David Robinson.jpg" },
-    { name: "Bill Russell", positions: ["Pivô"], image: "img/Bill Russell.jpg" },
+    { name: "Bill Russell", positions: ["Pivô"], image: "img/Bill Russel.jpg" },
     { name: "Bill Walton", positions: ["Pivô"], image: "img/Bill Walton.jpg" },
   ];
 
