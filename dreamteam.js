@@ -31,7 +31,7 @@ const players = [
     { name: "George Gervin", positions: ["Ala-Armador", "Ala"], image: "img/George Gervin.jpeg"},
     { name: "Sam Jones", positions: ["Ala-Armador",], image: "img/Sam Jones.jpg" },
     { name: "Michael Jordan", positions: ["Ala-Armador", "Ala"], image: "img/Michael Jordan.png" },
-    { name: "Reggie Miller", positions: ["Ala-Armador"], image: "img/Reggie Miller.jpg" },
+    { name: "Reggie Miller", positions: ["Ala-Armador"], image: "img/Reggie MIller.jpg" },
     { name: "Paul Pierce", positions: ["Ala-Armador", "Ala"], image: "img/Paul Pierce.jpg" },
     { name: "Bill Sharman", positions: ["Ala-Armador"], image: "img/Bill Sharman.jpg" },
     //Alas
@@ -69,7 +69,7 @@ const players = [
     { name: "Dirk Nowitzki", positions: ["Ala-Pivô", "Pivô"], image: "img/Dirk Nowitzki.jpg" },
     { name: "Bob Pettit", positions: ["Ala-Pivô", "Pivô"], image: "img/Bob Pettit.jpeg" },
     { name: "Willis Reed", positions: ["Ala-Pivô", "Pivô"], image: "img/Willis Reed.jpg" },
-    { name: "Dolph Schayes", positions: ["Ala-Pivô", "Pivô"], image: "img/Dolph Schayes.jpg"},
+    { name: "Dolph Schayes", positions: ["Ala-Pivô", "Pivô"], image: "img/Dolph Schayes.jpeg"},
     { name: "Nate Thurmond", positions: ["Ala-Pivô", "Pivô"], image: "img/Nate Thurmond.jpeg" },
     //Pivôs
     { name: "Kareem Abdul-Jabbar", positions: ["Pivô"], image: "img/Kareem Abdul-Jabbar.jpg" },
@@ -93,11 +93,13 @@ const players = [
     };
 
     const selectedPlayers = {};
+    const usedPlayers = new Set();
 
     for (const position in positions) {
-        const availablePlayers = players.filter(player => player.positions.includes(position));
+        const availablePlayers = players.filter(player => player.positions.includes(position) && !usedPlayers.has(player.name));
         const randomPlayer = availablePlayers[Math.floor(Math.random() * availablePlayers.length)];
         selectedPlayers[position] = randomPlayer;
+        usedPlayers.add(randomPlayer.name);
     }
 
     for (const position in selectedPlayers) {
