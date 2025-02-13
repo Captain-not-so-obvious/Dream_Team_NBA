@@ -1,7 +1,10 @@
 body {
     font-family: Arial, sans-serif;
     text-align: center;
-    background-color: #2f4858;
+    background-image: url('/img/background.jpg');
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: 100%;
     color: #333;
     margin: 0;
     padding: 0;
@@ -61,6 +64,9 @@ body {
 
   h2 {
     color: #d8dbe2;
+    font-size: xx-large;
+    -webkit-text-stroke-color: #001a40;
+    -webkit-text-stroke-width: 2px;
   }
   
   button {
