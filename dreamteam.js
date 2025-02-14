@@ -31,7 +31,7 @@ const players = [
     { name: "George Gervin", positions: ["Ala-Armador", "Ala"], image: "img/George Gervin.jpeg"},
     { name: "Sam Jones", positions: ["Ala-Armador",], image: "img/Sam Jones.jpg" },
     { name: "Michael Jordan", positions: ["Ala-Armador", "Ala"], image: "img/Michael Jordan.png" },
-    { name: "Reggie Miller", positions: ["Ala-Armador"], image: "img/Reggie MIller.jpg" },
+    { name: "Reggie Miller", positions: ["Ala-Armador"], image: "img/Reggie Miller.jpg" },
     { name: "Paul Pierce", positions: ["Ala-Armador", "Ala"], image: "img/Paul Pierce.jpg" },
     { name: "Bill Sharman", positions: ["Ala-Armador"], image: "img/Bill Sharman.jpg" },
     //Alas
